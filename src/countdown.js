@@ -19,4 +19,20 @@ function countdownTimer(startTime, interval) {
   // Return the timer ID for validation
 }
 
+function countdownTimer(startTime, interval) {
+  let remaining = startTime;
+
+  const timerId = setInterval(() => {
+    console.log(remaining);
+    remaining -= 1;
+
+    if (remaining < 0) {
+      clearInterval(timerId);
+    }
+  }, interval);
+
+  return timerId;
+}
+
 module.exports = { countdownTimer };
+
